@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj": {}
+    "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj": {
+    "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj",
         "projectName": "Library.DAL",
-        "projectPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj",
+        "projectPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj",
         "packagesPath": "C:\\Users\\ymkaa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\obj\\",
+        "outputPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ymkaa\\AppData\\Roaming\\NuGet\\NuGet.Config",

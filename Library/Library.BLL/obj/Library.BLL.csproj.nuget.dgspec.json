@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.BLL\\Library.BLL.csproj": {}
+    "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.BLL\\Library.BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.BLL\\Library.BLL.csproj": {
+    "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.BLL\\Library.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.BLL\\Library.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.BLL\\Library.BLL.csproj",
         "projectName": "Library.BLL",
-        "projectPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.BLL\\Library.BLL.csproj",
+        "projectPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.BLL\\Library.BLL.csproj",
         "packagesPath": "C:\\Users\\ymkaa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.BLL\\obj\\",
+        "outputPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ymkaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj": {
-                "projectPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj"
+              "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj": {
+                "projectPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj"
               }
             }
           }
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[2.2.3, )"
             },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[7.0.8, )"
@@ -76,18 +80,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.313\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.315\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj": {
+    "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj",
         "projectName": "Library.DAL",
-        "projectPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj",
+        "projectPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj",
         "packagesPath": "C:\\Users\\ymkaa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\obj\\",
+        "outputPath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ymkaa\\AppData\\Roaming\\NuGet\\NuGet.Config",

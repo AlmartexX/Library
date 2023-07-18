@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
 using Library.BLL.DTO;
+using FluentValidation;
+using Library.BLL.Validation;
 
 namespace Library.UI.ServiceCollection
 {
@@ -25,6 +27,10 @@ namespace Library.UI.ServiceCollection
             services.AddScoped<IAppContext>(provider => provider.GetService<LibraryContext>());
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IValidator<CreateBookDTO>, CreateBookValidator>();
+            services.AddScoped<IValidator<UpdateBookDTO>, UpdateBookValidator>();
+            services.AddScoped<IValidationPipelineBehavior<CreateBookDTO, CreateBookDTO>, ValidationPipelineBehavior<CreateBookDTO, CreateBookDTO>>();
+            services.AddScoped<IValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO>, ValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO>>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPasswordHasher<UserDTO>, PasswordHasher<UserDTO>>();

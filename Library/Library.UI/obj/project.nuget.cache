@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4WxuM/+HCZv7MiBFCKFU9yssOMWj/h23fHJxnhd7+YCjMGxQNGUS1toYGrs3k+e9INGxg7yxGF/lBuiWscsxvA==",
+  "dgSpecHash": "7wxkPwbihYY+58rIKzG4pqrtrZA0vGhLC2YC6KAQcqWPtJN4gYm63IJZfpfHkv/VFvb1pTVHOUrUEAgc2HFw0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.UI\\Library.UI.csproj",
+  "projectFilePath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.UI\\Library.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ymkaa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -14,6 +14,8 @@
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.19\\microsoft.aspnetcore.authentication.jwtbearer.6.0.19.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.8\\microsoft.aspnetcore.cryptography.internal.7.0.8.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.8\\microsoft.aspnetcore.cryptography.keyderivation.7.0.8.nupkg.sha512",
+    "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",

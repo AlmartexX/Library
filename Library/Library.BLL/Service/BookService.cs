@@ -5,6 +5,8 @@ using Library.DAL.Interface;
 using AutoMapper;
 using Library.BLL.Interface;
 using Library.DAL.Modell;
+using Microsoft.Extensions.Logging;
+using static Library.BLL.Validation.ValidationException;
 
 namespace Library.BLL.Service
 {
@@ -12,15 +14,22 @@ namespace Library.BLL.Service
     {
         private readonly IMapper _mapper;
         private readonly IBookRepository _bookRepository;
+        private readonly ILogger<BookService> _logger;
+        private readonly IValidationPipelineBehavior<CreateBookDTO, CreateBookDTO> _createBookValidator;
+        private readonly IValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO> _updateBookValidator;
 
-        public BookService(IMapper mapper, IBookRepository bookRepository)
+        public BookService(
+          IMapper mapper,
+          IBookRepository bookRepository,
+          ILogger<BookService> logger,
+          IValidationPipelineBehavior<CreateBookDTO, CreateBookDTO> createBookValidator,
+          IValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO> updateBookValidator)
         {
-            _mapper = mapper
-                ?? throw new ArgumentNullException();
-
-            _bookRepository = bookRepository
-                ?? throw new ArgumentNullException();
-
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _bookRepository = bookRepository ?? throw new ArgumentNullException(nameof(bookRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _createBookValidator = createBookValidator ?? throw new ArgumentNullException(nameof(createBookValidator));
+            _updateBookValidator = updateBookValidator ?? throw new ArgumentNullException(nameof(updateBookValidator));
         }
 
         public async Task<IEnumerable<BookDTO>> GetBooksAsync()
@@ -28,6 +37,7 @@ namespace Library.BLL.Service
             try
             {
                 var books = await _bookRepository.GetBooksAsync();
+
                 return _mapper.Map<IEnumerable<BookDTO>>(books);
             }
             catch (Exception ex)
@@ -39,99 +49,69 @@ namespace Library.BLL.Service
 
         public async Task<BookDTO> GetBookByIdAsync(int? id)
         {
-            try
+            var book = await _bookRepository.GetBookByIdAsync(id.Value);
+            if (book == null)
             {
-                var book = await _bookRepository.GetBookByIdAsync(id.Value);
-                return _mapper.Map<BookDTO>(book);
+                throw new NotFoundException("No records with this id in database");
             }
-            catch (Exception ex)
-            {
 
-                return null;
-            }
-        } 
+            return _mapper.Map<BookDTO>(book);
+        }
         public async Task<BookDTO> GetBookByISBNAsync(int? isbn)
         {
-            try
+            var book = await _bookRepository.GetBookByISBNAsync(isbn.Value);
+            if (book == null)
             {
-                var book = await _bookRepository.GetBookByISBNAsync(isbn.Value);
-                return _mapper.Map<BookDTO>(book);
+                throw new NotFoundException("No records with this ISBN in database");
             }
-            catch (Exception ex)
-            {
 
-                return null;
-            }
+            return _mapper.Map<BookDTO>(book);
+
         }
 
         public async Task<CreateBookDTO> CreateBookAsync(CreateBookDTO newBookDto)
         {
-            try
+            _logger.LogInformation("--> Book started added process!");
+
+            return await _createBookValidator.Process(newBookDto, async () =>
             {
-                var validator = new CreateBookValidator();
-                var result = validator.Validate(newBookDto);
-                if (!result.IsValid)
-                {
-                    throw new ValidationException("The entry is incorrect");
-                }
                 var book = _mapper.Map<Book>(newBookDto);
                 await _bookRepository.CreateBookAsync(book);
-                return newBookDto;
-            }
-           
-            catch (Exception)
-            {
-                
-                return null;
-            }
+                _logger.LogInformation("--> Book added!");
 
+                return newBookDto;
+            });
         }
 
         public async Task<UpdateBookDTO> UpdateBookAsync(UpdateBookDTO bookDTO, int? id)
         {
-            try
+            _logger.LogInformation("--> Book started update process!");
+
+            return await _updateBookValidator.Process(bookDTO, async () =>
             {
                 var existingBook = await _bookRepository.GetBookByIdAsync(id.Value);
-                var validator = new UpdateBookValidator();
-
-                var result = validator.Validate(bookDTO);
-
-                if (!result.IsValid)
-                {
-                    throw new ValidationException("The entry is incorrect");
-                }
                 var updatedBook = _mapper.Map<Book>(bookDTO);
-
                 updatedBook.Id = existingBook.Id;
-
                 await _bookRepository.UpdateBookAsync(updatedBook);
-                return bookDTO;
-            }
-            catch (Exception ex)
-            {
+                _logger.LogInformation("--> Book updated!");
 
-                return null;
-            }
+                return bookDTO;
+            });
 
         }
 
         public async Task<(bool, string)> DeleteBookAsync(int? id)
         {
-            try
+            _logger.LogInformation("--> Books started delete process!");
+            var book = await _bookRepository.GetBookByIdAsync(id.Value);
+            if (book == null)
             {
-                var book = await _bookRepository.GetBookByIdAsync(id.Value);
-                if (book == null)
-                {
-                    return (false, "Books could not be found");
-                }
-                await _bookRepository.DeleteBookAsync(id.Value);
-                return (true, "Book got deleted.");
+                throw new NotFoundException("No records with this id in database");
             }
-            catch (Exception ex)
-            {
-                return (false, $"An error occured. Error Message: {ex.Message}");
-            }
+            await _bookRepository.DeleteBookAsync(id.Value);
+            _logger.LogInformation("--> Book deleted!");
 
+            return (true, "Book got deleted.");
         }
     }
 }

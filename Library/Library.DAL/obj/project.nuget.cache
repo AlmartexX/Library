@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DADcMZuxI6JlAtslYZJJqRsv1OqSVi/9KOmGtad/63YmSltRasQAep/qXK6O0b5AV2xxGtiUSpxrtUWpQJ3DaQ==",
+  "dgSpecHash": "CPBSraP1P6vvClXeadsRHn+6aqc5kWCnk8sRsWRys63gnnv9+tI11DFG+T6G3ROidvC5Xi10oFhAf57l618u7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ymkaa\\Documents\\work\\Modsen\\Проект\\Library\\Library.DAL\\Library.DAL.csproj",
+  "projectFilePath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.DAL\\Library.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.8\\microsoft.entityframeworkcore.7.0.8.nupkg.sha512",
     "C:\\Users\\ymkaa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.8\\microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
