@@ -14,6 +14,7 @@ using Library.BLL.DTO;
 using FluentValidation;
 using Library.BLL.Validation;
 
+
 namespace Library.UI.ServiceCollection
 {
     public static class ServiceCollection
