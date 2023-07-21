@@ -1,4 +1,5 @@
-﻿using Library.DAL.Interface;
+﻿using Library.DAL.Configuration;
+using Library.DAL.Interface;
 using Library.DAL.Modell;
 
 using Microsoft.EntityFrameworkCore;
@@ -15,19 +16,14 @@ namespace Library.DAL.Context
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
         }
+        public DbSet<TEntity> Set<TEntity>() where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>(entity =>
-            {
-                entity.HasKey(e => e.Id); 
-                entity.Property(e => e.ISBN).IsRequired().HasMaxLength(20); 
-                entity.Property(e => e.Name).IsRequired().HasMaxLength(100); 
-                entity.Property(e => e.Genre).IsRequired().HasMaxLength(50); 
-                entity.Property(e => e.Description).IsRequired().HasMaxLength(500); 
-                entity.Property(e => e.Author).IsRequired().HasMaxLength(100); 
-                entity.Property(e => e.BookBorrowedTime).IsRequired();
-                entity.Property(e => e.BookReturnDeadline).IsRequired(); 
-            });
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
         }
 
     }

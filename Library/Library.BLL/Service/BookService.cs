@@ -39,7 +39,7 @@ namespace Library.BLL.Service
         public async Task<IEnumerable<BookDTO>> GetBooksAsync()
         {
             
-                var books = await _bookRepository.GetBooksAsync();
+                var books = await _bookRepository.GetAllAsync();
 
                 return books.Select(book => _bookMapper.MapToDTO(book));
            
@@ -47,7 +47,7 @@ namespace Library.BLL.Service
 
         public async Task<BookDTO> GetBookByIdAsync(int? id)
         {
-            var book = await _bookRepository.GetBookByIdAsync(id.Value);
+            var book = await _bookRepository.GetByIdAsync(id.Value);
             if (book == null)
             {
                 throw new NotFoundException("No records with this id in database");
@@ -74,7 +74,7 @@ namespace Library.BLL.Service
             return await _createBookValidator.Process(newBookDto, async () =>
             {
                 var book = _bookMapper.MapToEntity(newBookDto);
-                await _bookRepository.CreateBookAsync(book);
+                await _bookRepository.CreateAsync(book);
                 _logger.LogInformation("--> Book added!");
 
                 return newBookDto;
@@ -87,9 +87,9 @@ namespace Library.BLL.Service
 
             return await _updateBookValidator.Process(bookDTO, async () =>
             {
-                var existingBook = await _bookRepository.GetBookByIdAsync(id.Value);
+                var existingBook = await _bookRepository.GetByIdAsync(id.Value);
                 _bookMapper.MapToEntity(bookDTO, existingBook);
-                await _bookRepository.UpdateBookAsync(existingBook);
+                await _bookRepository.UpdateAsync(existingBook);
                 _logger.LogInformation("--> Book updated!");
 
                 return bookDTO;
@@ -100,12 +100,12 @@ namespace Library.BLL.Service
         public async Task<(bool, string)> DeleteBookAsync(int? id)
         {
             _logger.LogInformation("--> Books started delete process!");
-            var book = await _bookRepository.GetBookByIdAsync(id.Value);
+            var book = await _bookRepository.GetByIdAsync(id.Value);
             if (book == null)
             {
                 throw new NotFoundException("No records with this id in database");
             }
-            await _bookRepository.DeleteBookAsync(id.Value);
+            await _bookRepository.DeleteAsync(id.Value);
             _logger.LogInformation("--> Book deleted!");
 
             return (true, "Book got deleted.");
