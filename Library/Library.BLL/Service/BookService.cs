@@ -17,34 +17,32 @@ namespace Library.BLL.Service
         private readonly ILogger<BookService> _logger;
         private readonly IValidationPipelineBehavior<CreateBookDTO, CreateBookDTO> _createBookValidator;
         private readonly IValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO> _updateBookValidator;
+        private readonly IBookMapper _bookMapper;
+
 
         public BookService(
           IMapper mapper,
           IBookRepository bookRepository,
           ILogger<BookService> logger,
           IValidationPipelineBehavior<CreateBookDTO, CreateBookDTO> createBookValidator,
-          IValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO> updateBookValidator)
+          IValidationPipelineBehavior<UpdateBookDTO, UpdateBookDTO> updateBookValidator,
+          IBookMapper bookMapper)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _bookRepository = bookRepository ?? throw new ArgumentNullException(nameof(bookRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _createBookValidator = createBookValidator ?? throw new ArgumentNullException(nameof(createBookValidator));
             _updateBookValidator = updateBookValidator ?? throw new ArgumentNullException(nameof(updateBookValidator));
+            _bookMapper = bookMapper;
         }
 
         public async Task<IEnumerable<BookDTO>> GetBooksAsync()
         {
-            try
-            {
+            
                 var books = await _bookRepository.GetBooksAsync();
 
-                return _mapper.Map<IEnumerable<BookDTO>>(books);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-
+                return books.Select(book => _bookMapper.MapToDTO(book));
+           
         }
 
         public async Task<BookDTO> GetBookByIdAsync(int? id)
@@ -55,7 +53,7 @@ namespace Library.BLL.Service
                 throw new NotFoundException("No records with this id in database");
             }
 
-            return _mapper.Map<BookDTO>(book);
+            return _bookMapper.MapToDTO(book);
         }
         public async Task<BookDTO> GetBookByISBNAsync(int? isbn)
         {
@@ -65,7 +63,7 @@ namespace Library.BLL.Service
                 throw new NotFoundException("No records with this ISBN in database");
             }
 
-            return _mapper.Map<BookDTO>(book);
+            return _bookMapper.MapToDTO(book);
 
         }
 
@@ -75,7 +73,7 @@ namespace Library.BLL.Service
 
             return await _createBookValidator.Process(newBookDto, async () =>
             {
-                var book = _mapper.Map<Book>(newBookDto);
+                var book = _bookMapper.MapToEntity(newBookDto);
                 await _bookRepository.CreateBookAsync(book);
                 _logger.LogInformation("--> Book added!");
 
@@ -90,9 +88,8 @@ namespace Library.BLL.Service
             return await _updateBookValidator.Process(bookDTO, async () =>
             {
                 var existingBook = await _bookRepository.GetBookByIdAsync(id.Value);
-                var updatedBook = _mapper.Map<Book>(bookDTO);
-                updatedBook.Id = existingBook.Id;
-                await _bookRepository.UpdateBookAsync(updatedBook);
+                _bookMapper.MapToEntity(bookDTO, existingBook);
+                await _bookRepository.UpdateBookAsync(existingBook);
                 _logger.LogInformation("--> Book updated!");
 
                 return bookDTO;
