@@ -37,14 +37,14 @@ namespace Library.BLL.GlobalExceptionHandler
             {
                 await HandleExceptionAsync(httpContext,
                     ex.Message,
-                    HttpStatusCode.InternalServerError,
+                    HttpStatusCode.NotFound,
                     "The key not found");
             }
             catch (ValidationException ex)
             {
                 await HandleExceptionAsync(httpContext,
                     ex.Message,
-                    HttpStatusCode.InternalServerError,
+                    HttpStatusCode.UnprocessableEntity,
                     "The validation error");
             }
             catch (Exception ex)
@@ -71,7 +71,6 @@ namespace Library.BLL.GlobalExceptionHandler
                 StatusCode = (int)httpStatusCode
             };
             string result = JsonSerializer.Serialize(errorDto);
-           // await response.WriteAsJsonAsync(result);
             await response.WriteAsync(result);
         }
     }

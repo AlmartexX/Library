@@ -177,7 +177,6 @@ C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Libr
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.AssemblyInfoInputs.cache
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.AssemblyInfo.cs
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.csproj.CoreCompileInputs.cache
-C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\staticwebassets.development.json
@@ -188,3 +187,4 @@ C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\refi
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.pdb
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.genruntimeconfig.cache
 C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\ref\Library.UI.dll
+C:\Users\ymkaa\Documents\GitHub\Library\Library\Library.UI\obj\Debug\net6.0\Library.UI.MvcApplicationPartsAssemblyInfo.cs

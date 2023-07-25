@@ -14,14 +14,20 @@ namespace Library.BLL.Service
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<UserDTO> _passwordHasher;
+        private readonly IUserMapper _userMapper;
 
-        public UserService(IUserRepository userRepository,IMapper mapper, IPasswordHasher<UserDTO> passwordHasher)
+        public UserService(IUserRepository userRepository,
+            IMapper mapper,
+            IPasswordHasher<UserDTO> passwordHasher,
+            IUserMapper userMapper)
         {
             _userRepository = userRepository
                 ?? throw new ArgumentNullException();
             _mapper = mapper
                 ?? throw new ArgumentNullException();
-            _passwordHasher = passwordHasher 
+            _passwordHasher = passwordHasher
+                ?? throw new ArgumentNullException();
+            _userMapper = userMapper
                 ?? throw new ArgumentNullException();
         }
 
@@ -62,7 +68,8 @@ namespace Library.BLL.Service
         {
 
             var user = await _userRepository.GetUserByName(name);
-            var userDto = _mapper.Map<UserDTO>(user);
+            var userDto = _userMapper.MapToDTO(user);
+
 
             if (user != null && _passwordHasher.VerifyHashedPassword(userDto, user.PasswordHash, password) == Microsoft.AspNetCore.Identity.PasswordVerificationResult.Success)
             {

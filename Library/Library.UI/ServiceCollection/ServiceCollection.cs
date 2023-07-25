@@ -14,6 +14,7 @@ using Library.BLL.DTO;
 using FluentValidation;
 using Library.BLL.Validation;
 
+
 namespace Library.UI.ServiceCollection
 {
     public static class ServiceCollection
@@ -27,6 +28,8 @@ namespace Library.UI.ServiceCollection
             services.AddScoped<IAppContext>(provider => provider.GetService<LibraryContext>());
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IBookMapper, BookMapper>();
+            services.AddScoped<IUserMapper, UserMapper>();
             services.AddScoped<IValidator<CreateBookDTO>, CreateBookValidator>();
             services.AddScoped<IValidator<UpdateBookDTO>, UpdateBookValidator>();
             services.AddScoped<IValidationPipelineBehavior<CreateBookDTO, CreateBookDTO>, ValidationPipelineBehavior<CreateBookDTO, CreateBookDTO>>();

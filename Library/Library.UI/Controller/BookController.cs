@@ -7,7 +7,7 @@ namespace Library.UI.Controller
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+   // [Authorize]
     public class BookController:ControllerBase
     {
         
