@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Eo9A2vuzcikYouOJq/oQ/WVI1NAPrzfTGkHs3yfFtnsoZvZnsKGDd2zNCGrvlrMBpvQZOPzy3MYaOzIG32HFGw==",
+  "dgSpecHash": "o82A4evZCQniT6hPrmkSOwG/pgD12Qk+CmIWfOuFFN6f7oF1TDCNW5CQpGsha/6r6PKFpWp2YY1Y7qYk4a7shw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ymkaa\\Documents\\GitHub\\Library\\Library\\Library.BLL\\Library.BLL.csproj",
   "expectedPackageFiles": [
@@ -33,7 +33,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.Identity.Core 2.2.3\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Пакет \"Microsoft.AspNet.Identity.Core 2.2.3\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net6.0"
